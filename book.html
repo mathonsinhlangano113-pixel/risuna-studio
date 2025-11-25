@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Appointment — Risuna's Beauty Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="hair.html">Hair</a>
+      <a href="makeup.html">Make-up</a>
+      <a href="nails.html">Nails</a>
+    </nav>
+  </header>
+
+  <section id="contact" class="contact">
+    <div class="contact-left">
+      <h3>Book an appointment</h3>
+      <p>Complete the form and we'll confirm your booking. For faster replies use WhatsApp.</p>
+
+      <form id="bookingForm">
+        <input name="name" placeholder="Full name" required />
+        <input name="phone" placeholder="Phone or WhatsApp" required />
+        <input name="email" placeholder="Email (optional)" type="email" />
+        <select name="service" required>
+          <option value="">Select service</option>
+          <option>Hair Installation — Wig</option>
+          <option>Hair Installation — Sew-in</option>
+          <option>Make-up — Bridal</option>
+          <option>Make-up — Glam Look</option>
+          <option>Nails — Gel Manicure</option>
+          <option>Nails — Acrylic Set</option>
+        </select>
+        <textarea name="notes" placeholder="Preferred date/time and notes"></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="primary">Send Request</button>
+          <a
+            class="whatsapp"
+            href="https://wa.me/27608462045?text=Hello,%20I’d%20like%20to%20request%20an%20appointment.%20Please%20assist."
+            target="_blank">
+            WhatsApp
+          </a>
+        </div>
+
+        <div id="formMessage" class="form-message" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <div class="contact-right">
+      <iframe
+        title="map"
+        src="https://maps.google.com/maps?q=148%20Johnston%20Street%2C%20Sunnyside%2C%20Pretoria%2C%200002&t=&z=13&ie=UTF8&iwloc=&output=embed">
+      </iframe>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    © <span id="year"></span> Risuna Beauty Studio — Designed with care
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+const form = document.getElementById('bookingForm');
+const formMessage = document.getElementById('formMessage');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: form.name.value,
+    phone: form.phone.value,
+    email: form.email.value,
+    service: form.service.value,
+    notes: form.notes.value
+  };
+
+  try {
+    const res = await fetch('http://127.0.0.1:5000/book', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await res.json();
+    formMessage.textContent = data.message;
+    if (data.status === 'success') form.reset();
+  } catch (err) {
+    formMessage.textContent = 'Error submitting booking. Try again later.';
+  }
+});
+</script>
+
+</body>
+</html>

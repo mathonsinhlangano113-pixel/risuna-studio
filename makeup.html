@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Make-up — Risuna's Beauty Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="hair.html">Hair</a>
+      <a href="nails.html">Nails</a>
+      <a href="book.html">Book</a>
+    </nav>
+  </header>
+
+  <section id="services" class="services">
+    <h3>Make-up</h3>
+    <p>Bridal & editorial looks</p>
+
+    <div class="cards">
+      <article class="card" id="makeup">
+        <img src="images/make1.jpg" alt="makeup1" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/make2.jpg" alt="makeup2" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/make3.jpg" alt="makeup3" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/make4.jpg" alt="makeup4" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/make5.jpg" alt="makeup5" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/make6.jpg" alt="makeup6" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/make7.jpg" alt="makeup7" class="preview" onclick="openGallery(this.src)"/>
+        <a href="book.html#makeup" class="small-cta">Book Make-up</a>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    © <span id="year"></span> Risuna Beauty Studio — Designed with care
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

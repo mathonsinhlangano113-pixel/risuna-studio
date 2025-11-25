@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nails — Risuna's Beauty Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="hair.html">Hair</a>
+      <a href="makeup.html">Make-up</a>
+      <a href="book.html">Book</a>
+    </nav>
+  </header>
+
+  <section id="services" class="services">
+    <h3>Nails</h3>
+    <p>Manicure, gel & nail art</p>
+
+    <div class="cards">
+      <article class="card" id="nails">
+        <img src="images/nails1.jpg" alt="nails1" class="preview" onclick="openGallery(this.src)" />
+        <img src="images/nails2.jpg" alt="nails2" class="preview" onclick="openGallery(this.src)" />
+        <img src="images/nails3.jpg" alt="nails3" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/nails4.jpg" alt="nails4" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/nails5.jpg" alt="nails5" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/nails6.jpg" alt="nails6" class="preview" onclick="openGallery(this.src)"/>
+        <img src="images/nails7.jpg" alt="nails6" class="preview" onclick="openGallery(this.src)"/>
+        <a href="book.html#nails" class="small-cta">Book Nails</a>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    © <span id="year"></span> Risuna Beauty Studio — Designed with care
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
